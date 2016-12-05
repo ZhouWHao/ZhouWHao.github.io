@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>和弦推导逻辑简析 | zwh | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="诚然，吉他有上千个和弦。世界上最厉害的吉他大师，也无法一眼辨识出所有的和弦。
+更多时候，我们熟记几个基本的和弦，然后通过一定的计算法则，去推导其他的和弦。因而推导的逻辑就非常重要。
+《吉他三月通》一书把这乐理洋洋洒洒说了一百多页，我想试着让事情简单一些。
+最后，我们将逻辑实现成一个小程序，可以方便打印出想要推导的和弦。
+###音乐与数学
+既然是逻辑，都可以用数学去建模，然而音乐与数学之间，却有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="和弦推导逻辑简析">
+<meta property="og:url" content="http://yoursite.com/2015/05/25/logic-of-chord/index.html">
+<meta property="og:site_name" content="zwh | Blog">
+<meta property="og:description" content="诚然，吉他有上千个和弦。世界上最厉害的吉他大师，也无法一眼辨识出所有的和弦。
+更多时候，我们熟记几个基本的和弦，然后通过一定的计算法则，去推导其他的和弦。因而推导的逻辑就非常重要。
+《吉他三月通》一书把这乐理洋洋洒洒说了一百多页，我想试着让事情简单一些。
+最后，我们将逻辑实现成一个小程序，可以方便打印出想要推导的和弦。
+###音乐与数学
+既然是逻辑，都可以用数学去建模，然而音乐与数学之间，却有">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chord1.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chord2.png">
+<meta property="og:updated_time" content="2016-12-04T16:51:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="和弦推导逻辑简析">
+<meta name="twitter:description" content="诚然，吉他有上千个和弦。世界上最厉害的吉他大师，也无法一眼辨识出所有的和弦。
+更多时候，我们熟记几个基本的和弦，然后通过一定的计算法则，去推导其他的和弦。因而推导的逻辑就非常重要。
+《吉他三月通》一书把这乐理洋洋洒洒说了一百多页，我想试着让事情简单一些。
+最后，我们将逻辑实现成一个小程序，可以方便打印出想要推导的和弦。
+###音乐与数学
+既然是逻辑，都可以用数学去建模，然而音乐与数学之间，却有">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/chord1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="zwh | Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/assets/blogImg/litten.png" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zwh Blog</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">指上得来终觉浅，绝知此码要牢记。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a data-idx="1" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/litten" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Zwh Blog</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/assets/blogImg/litten.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zwh Blog</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">指上得来终觉浅，绝知此码要牢记。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+		        
+		        	<li><a href="/archives">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/litten" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-logic-of-chord" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      和弦推导逻辑简析
+    </h1>
+  
+
+        <a href="/2015/05/25/logic-of-chord/" class="archive-article-date">
+  	<time datetime="2015-05-25T15:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-25</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/blogImg/chord1.jpg" alt="Image By Dustin Wallace"> </p>
+<p>诚然，吉他有上千个和弦。世界上最厉害的吉他大师，也无法一眼辨识出所有的和弦。</p>
+<p>更多时候，我们熟记几个基本的和弦，然后通过一定的计算法则，去推导其他的和弦。因而推导的逻辑就非常重要。</p>
+<p>《吉他三月通》一书把这乐理洋洋洒洒说了一百多页，我想试着让事情简单一些。</p>
+<p>最后，我们将逻辑实现成一个<a href="/assets/demo/chord/index.html">小程序</a>，可以方便打印出想要推导的和弦。</p>
+<p>###音乐与数学</p>
+<p>既然是逻辑，都可以用数学去建模，然而音乐与数学之间，却有一点非常重要的差异。</p>
+<p>在这之前，我们得谈点有趣的事情，它们都有共同的原因：</p>
+<ol>
+<li>为什么我们会觉得某首歌很“中国风”？</li>
+<li>为什么某些日本的传统音乐听起来很“诡异”？</li>
+<li>为什么钢琴要做成黑键白键，所有键都一样不行吗？</li>
+</ol>
+<a id="more"></a>
+<p>我们常用——</p>
+<blockquote>
+<p>正整数：1、2、3、4、5、6、7 ，<br>对应和弦：C、D、E、F、G、A、B，<br>对应音符：Do、Re、Me、Fa、So、La、Ti</p>
+</blockquote>
+<p>每个正整数之间，都是相差1；而按频率高低排列的音符，由于历史原因，它们并<strong>不是等差数列</strong>。</p>
+<p>实际上，<code>4比理想的要低一点，7比理想的要高一点</code>，其他的5个音，则基本在理想线性曲线上！</p>
+<p><img src="/assets/blogImg/chord2.png" alt="音阶频率曲线">        </p>
+<p>这5个跟理想比较吻合的音，就是天朝古代的五音阶：宫、商、角、徵、羽。“中国风”的歌曲，大多使用了这五个音，所以让人感到舒服和温和；而日本的传统音乐，反其道而行用了许多4与7（这么说也不太对，具体是受阴阳调式影响，但表现上大概如此），有一种幽静阴深的效果。</p>
+<p>所以，以上问题的原因是：<code>音符的递增不完全是线性的</code>！</p>
+<p>我们得把4和7这两个不和谐点标志出来，就出现了“半音和全音”的理论。<br>把<code>3到4</code>和<code>7到1</code>这两个不满一个跨度的叫做<code>半音</code>；其他相邻音符之间，都叫做<code>全音</code>。<br>而造物主的神奇之处在于：<code>两个半音等于一个全音</code>。</p>
+<p>音乐的世界跟数学的这点不同，会在后面逻辑推导上会给我们一点小小的麻烦。</p>
+<p>###音乐家与程序员</p>
+<p>试想，如果程序员要完成描述音阶的数据结构，会如何设计呢？</p>
+<p>通常，应该先规划“最小粒度”。而“半音”刚好是最合适的选择。</p>
+<p>音乐家与程序员的处理方式如出一辙，钢琴上夹在两个白键之间的黑键，吉他相邻品丝之间，都是为了表现出半音。</p>
+<p>如果用程序描述吉他品丝的关系就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var scale = [2, 2, 1, 2, 2, 2, 1];  //3-4是半音，7-1也是半音，相隔1品；其他是全音，相隔2品</div></pre></td></tr></table></figure>
+<p>###吉他与尺子</p>
+<p>知道了这些，我们就好比掌握了<code>一把尺子的刻度</code>。</p>
+<p>在尺子上，如果一个刻度表示1cm，那么从3cm往后推两个格子，就是5cm；<br>把吉他想象成尺子，一个刻度表示半音，和弦之间就可以推导了。</p>
+<p>与众不同的是，这把尺子首尾相连，更像一个循环的圈。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">刻度：    2品       2品       1品       2品       2品       2品       1品       2品       2品</div><div class="line">和弦：C  +----&gt; D  +----&gt; E  +----&gt; F  +----&gt; G  +----&gt; A  +----&gt; B  +----&gt; C  +----&gt; D  +----&gt; ……</div><div class="line">音符：Do +----&gt; Re +----&gt; Me +----&gt; Fa +----&gt; So +----&gt; La +----&gt; Ti +----&gt; Do +----&gt; Re +----&gt; ……</div><div class="line">整数：1  +----&gt; 2  +----&gt; 3  +----&gt; 4  +----&gt; 5  +----&gt; 6  +----&gt; 7  +----&gt; 1  +----&gt; 2  +----&gt; ……</div></pre></td></tr></table></figure>
+<p>因而，<code>一个和弦可以有多种方式弹奏</code>。<br>比如C和弦，除了最基础的开放式（不需要用食指横按品丝）指法，我们还可以用A和弦的指法实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">C = B + 1品</div><div class="line">  = A + 2品 + 1品</div><div class="line">  = A + 3品</div></pre></td></tr></table></figure>
+<p>所以，我们用食指横按住第3品（或者用变调夹夹第3品），然后再加上A和弦的开放式指法，就形成了一个C和弦。</p>
+<p>同理也可以用E和弦实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">C = B + 1品</div><div class="line">  = A + 2品 + 1品</div><div class="line">  = G + 2品 + 2品 + 1品</div><div class="line">  = F + 2品 + 2品 + 2品 + 1品</div><div class="line">  = E + 1品 + 2品 + 2品 + 2品 + 1品</div><div class="line">  = E + 8品</div></pre></td></tr></table></figure>
+<p>横按的位置就在第8品上。</p>
+<p>其实大部分情况下，我们都是用A，E，Am，Em这四个和弦去推导其他和弦，因为这几个和弦横按与转换比较方便，特别是在扫弦的时候。</p>
+<p>###程序实现</p>
+<p>明确逻辑之后，就差程序实现了。但这之前，我们定了程序的最小粒度是1品，就无可避免遇到一个问题：</p>
+<p>如果<code>A + 2品 = B</code>，那<code>A + 1品 = ？</code></p>
+<p>这个和弦介于A与B之间，人们把它称为<code>升A</code>或<code>降B</code>，对应记法是<code>A#</code>或<code>Bb</code>。</p>
+<p>至此我们可以列出，用E指法和A指法推导的所有和弦的横按位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">var positions = &#123;</div><div class="line">    &quot;E&quot;: &#123;</div><div class="line">    	&quot;A&quot;:  5,</div><div class="line">    	&quot;A#&quot;: 6,</div><div class="line">    	&quot;Bb&quot;: 6,</div><div class="line">    	&quot;B&quot;:  7,</div><div class="line">    	&quot;C&quot;:  8,</div><div class="line">    	&quot;C#&quot;: 9,</div><div class="line">    	&quot;Db&quot;: 9,</div><div class="line">    	&quot;D&quot;:  10,</div><div class="line">    	&quot;D#&quot;: 11,</div><div class="line">    	&quot;Eb&quot;: 11,</div><div class="line">    	&quot;E&quot;:  12,</div><div class="line">    	&quot;F&quot;:  1,</div><div class="line">    	&quot;F#&quot;: 2,</div><div class="line">    	&quot;Gb&quot;: 2,</div><div class="line">    	&quot;G&quot;:  3,</div><div class="line">    	&quot;G#&quot;: 4,</div><div class="line">    	&quot;Ab&quot;: 4</div><div class="line">    &#125;,</div><div class="line">    &quot;A&quot;: &#123;</div><div class="line">     	&quot;A&quot;:  12,</div><div class="line">     	&quot;A#&quot;: 1,</div><div class="line">     	&quot;Bb&quot;: 1,</div><div class="line">     	&quot;B&quot;:  2,</div><div class="line">     	&quot;C&quot;:  3,</div><div class="line">     	&quot;C#&quot;: 4,</div><div class="line">     	&quot;Db&quot;: 4,</div><div class="line">     	&quot;D&quot;:  5,</div><div class="line">     	&quot;D#&quot;: 6,</div><div class="line">     	&quot;Eb&quot;: 6,</div><div class="line">     	&quot;E&quot;:  7,</div><div class="line">     	&quot;F&quot;:  8,</div><div class="line">     	&quot;F#&quot;: 9,</div><div class="line">     	&quot;Gb&quot;: 9,</div><div class="line">     	&quot;G&quot;:  10,</div><div class="line">     	&quot;G#&quot;: 11,</div><div class="line">     	&quot;Ab&quot;: 11</div><div class="line">    &#125;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<p>同时，将E、A的开放和弦的指型描述出来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//这里仅列出E、A大小和弦，共四种指法</div><div class="line">//更详细指法数据结构可参看后面demo</div><div class="line"></div><div class="line">chord_shapes = &#123;</div><div class="line">  	&quot;M E&quot;: &#123;</div><div class="line">		name: &quot;Maj&quot;,</div><div class="line">		chord: [[3, 2], [4, 3], [5, 3]],</div><div class="line">		bars: [&#123;from_string: 6, to_string: 1, fret: 1&#125;]</div><div class="line">  	&#125;,</div><div class="line">  	&quot;m E&quot;: &#123;</div><div class="line">	    name: &quot;m&quot;,</div><div class="line">	    chord: [[4, 3], [5, 3]],</div><div class="line">	    bars: [&#123;from_string: 6, to_string: 1, fret: 1&#125;]</div><div class="line">  	&#125;,</div><div class="line">  	&quot;M A&quot;: &#123;</div><div class="line">	    name: &quot;Maj&quot;,</div><div class="line">	    chord: [[2, 3], [3, 3], [4, 3], [6, &quot;x&quot;]],</div><div class="line">	    bars: [&#123;from_string: 5, to_string: 1, fret: 1&#125;]</div><div class="line">  	&#125;,</div><div class="line">  	&quot;m A&quot;: &#123;</div><div class="line">	    name: &quot;m&quot;,</div><div class="line">	    chord: [[2, 2], [3, 3], [4, 3], [6, &quot;x&quot;]],</div><div class="line">	    bars: [&#123;from_string: 5, to_string: 1, fret: 1&#125;]</div><div class="line">  	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>分别传递“和弦名”,“指法”，“类型”作为参数，我们就可以很容易的画出和弦：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createChord(&quot;C&quot;, &quot;A&quot;, &quot;M A&quot;);  \\画出C和弦，用A指法，定义类型是大三和弦(Maj)</div><div class="line">createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，用A指法，定义类型是小三和弦(Minor)</div></pre></td></tr></table></figure>
+<p>###Demo</p>
+<p>以下是<a href="/assets/demo/chord/index.html">完整Demo</a>，将上述chord_shapes的指型补充得更完整。</p>
+<p>并且尝试用A指型，自动生成了C调的7个常用和弦。</p>
+<p>End. 2015.5.25</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/旧事/">旧事</a></li></ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/05/25/logic-of-chord/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/06/05/viewing-commentary/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          半年新影短评
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/04/28/img-lazy-load/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">说到加载图片，我们可以谈些什么</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="logic-of-chord" data-title="和弦推导逻辑简析" data-url="http://yoursite.com/2015/05/25/logic-of-chord/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Zwh Blog
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">旧事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">coffeescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">黑科技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">octopress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">产品</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">药别停</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">性能</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Litten，&lt;br&gt;毕业于华科，就职于鹅厂&lt;br&gt;&lt;br&gt;热爱大海与冷笑话，&lt;br/&gt;目前是一枚前端&lt;br/&gt;&lt;br/&gt;胆小认生，不易相处，&lt;br&gt;年轻无为，卖马为生。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
