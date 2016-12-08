@@ -1610,8 +1610,7 @@ pre .css ~ * .id {
   margin: -30px 0 20px 7.6923%; }
 
 .article-inner p {
-  margin: 0 0 1.75em;
-  font-size: 1rem; }
+  margin: 0 0 1.75em; }
 
 .article-inner {
   border-color: #d1d1d1; }
@@ -1674,6 +1673,7 @@ pre .css ~ * .id {
   display: inline; }
 
 .article-entry {
+  font-size: 1rem;
   line-height: 1.8em;
   padding-right: 7.6923%;
   padding-left: 7.6923%; }
