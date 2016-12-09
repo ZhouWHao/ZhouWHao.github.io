@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-08T02:04:47.976Z</updated>
+  <updated>2016-12-09T05:04:08.740Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搞笑视频，贴出来耍耍看</title>
+    <link href="http://yoursite.com/2016/12/09/zwh4/"/>
+    <id>http://yoursite.com/2016/12/09/zwh4/</id>
+    <published>2016-12-09T02:36:00.000Z</published>
+    <updated>2016-12-09T05:04:08.740Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搞笑哦"><a href="#搞笑哦" class="headerlink" title="搞笑哦"></a>搞笑哦</h1><a id="more"></a>
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=7422418&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;搞笑哦&quot;&gt;&lt;a href=&quot;#搞笑哦&quot; class=&quot;headerlink&quot; title=&quot;搞笑哦&quot;&gt;&lt;/a&gt;搞笑哦&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="视频" scheme="http://yoursite.com/tags/%E8%A7%86%E9%A2%91/"/>
+    
+  </entry>
   
   <entry>
     <title> 今年我给自己定了三个目标</title>
