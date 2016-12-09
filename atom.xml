@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>zwh | Blog</title>
+  <subtitle>指上得来终觉浅，绝知此码要牢记。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-12-08T02:04:47.976Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Zwh Blog</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> 今年我给自己定了三个目标</title>
+    <link href="http://yoursite.com/2016/12/07/zwh2/"/>
+    <id>http://yoursite.com/2016/12/07/zwh2/</id>
+    <published>2016-12-07T09:42:00.000Z</published>
+    <updated>2016-12-08T02:04:47.976Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/assets/blogImg/blog-7.png" alt=""><br>生于忧患死于安乐，要想在这看似动荡浮躁的时代安身立命唯有找一份事业,认真踏实去干; 一直干到如同庖丁解牛的境界。 这样，身也安了,命也立了。 就是这样。<br><a id="more"></a><br>1.学会并使用web三大框架(React.js、Vue.js、AngularJs)增加知识面</p>
+<p><img src="/assets/blogImg/blog-4.png" alt=""></p>
+<p><img src="/assets/blogImg/blog-3.png" alt=""></p>
+<p>2.搞定英语三级课程<br><img src="/assets/blogImg/blog-5.png" alt=""> </p>
+<p>3.在高新区找一份新工作<br><img src="/assets/blogImg/blog-6.png" alt=""></p>
+<p>箭在弦上，不得不发。</p>
+<p><img src="/assets/blogImg/blog-2.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/blog-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;生于忧患死于安乐，要想在这看似动荡浮躁的时代安身立命唯有找一份事业,认真踏实去干; 一直干到如同庖丁解牛的境界。 这样，身也安了,命也立了。 就是这样。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="目标" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 2016年我第一次写博客</title>
+    <link href="http://yoursite.com/2016/12/06/zwh1/"/>
+    <id>http://yoursite.com/2016/12/06/zwh1/</id>
+    <published>2016-12-06T07:29:00.000Z</published>
+    <updated>2016-12-07T09:47:15.815Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/assets/blogImg/blog-1.png" alt=""><br>&emsp;&emsp;小时候呢总想看看20岁的自己到底会变成什么样子，那时候哪会想到如今的自己居然是个碌碌无为的程序员，怪命运？还是自己？现在的我只想要过好当下的每一秒，哪怕是呼吸的那一秒，也要好好珍惜，因为我深知如今的我不可以再像从前了，这里引用我曾经看到过的一句话，人一旦看到真相了，就很难再闭上眼睛假装不知道。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/blog-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;emsp;&amp;emsp;小时候呢总想看看20岁的自己到底会变成什么样子，那时候哪会想到如今的自己居然是个碌碌无为的程序员，怪命运？还是自己？现在的我只想要过好当下的每一秒，哪怕
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="http://yoursite.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么人的脚为什么比人的脸和手都要白呢？因为它老藏着。</title>
+    <link href="http://yoursite.com/2016/07/18/zwh3/"/>
+    <id>http://yoursite.com/2016/07/18/zwh3/</id>
+    <published>2016-07-18T02:36:00.000Z</published>
+    <updated>2016-12-08T09:56:42.922Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/assets/blogImg/caocao1.png" alt=""></p>
+<p>一生中最佩服的历史人物司马懿，懂得忍辱负重，待时而起的大才之人。</p>
+<a id="more"></a>
+<p><img src="/assets/blogImg/sima1.png" alt=""><br><img src="/assets/blogImg/sima2.png" alt=""><br><img src="/assets/blogImg/sima3.png" alt=""><br><img src="/assets/blogImg/sima4.png" alt=""><br><img src="/assets/blogImg/sima5.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/caocao1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;一生中最佩服的历史人物司马懿，懂得忍辱负重，待时而起的大才之人。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="http://yoursite.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+</feed>
