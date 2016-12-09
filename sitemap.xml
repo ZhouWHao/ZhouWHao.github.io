@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/border1px.html</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/assets/demo/jiugongge_demo.html</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
@@ -52,6 +45,13 @@
   
   <url>
     <loc>http://yoursite.com/assets/demo/jiugongge_demo2.html</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/border1px.html</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/gift/js/shake.js</loc>
+    <loc>http://yoursite.com/assets/demo/gift/css/reset.css</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/gift/css/reset.css</loc>
+    <loc>http://yoursite.com/assets/demo/gift/js/shake.js</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -100,7 +100,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/gift/js/zepto.min.js</loc>
+    <loc>http://yoursite.com/assets/demo/my_news_reader/js/tagConfig.js</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/assets/demo/coffee_pc_demo/pro-con.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/assets/demo/gift/index.html</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
@@ -142,7 +149,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/coffee_pc_demo/pro-con.js</loc>
+    <loc>http://yoursite.com/assets/demo/mediator/mediator.js</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -170,14 +177,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/mediator/mediator.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/my_news_reader/js/tagConfig.js</loc>
+    <loc>http://yoursite.com/assets/demo/gift/js/zepto.min.js</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
