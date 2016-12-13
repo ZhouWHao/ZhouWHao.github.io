@@ -4,11 +4,45 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/10/zwh7/</loc>
-    <lastmod>2016-12-10T03:55:25.725Z</lastmod>
+    <loc>http://yoursite.com/2016/12/09/zwh4/</loc>
+    <lastmod>2016-12-13T01:45:59.712Z</lastmod>
     <data>
         <display>
-        <title>javascript全栈之道</title>
+        <title>灾难电影——隧道</title>
+        <pubTime>2016-12-09T02:36:00.000Z</pubTime>
+        
+        <tag>视频</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/09/zwh5/</loc>
+    <lastmod>2016-12-13T01:45:38.811Z</lastmod>
+    <data>
+        <display>
+        <title>灾难电影——釜山行</title>
+        <pubTime>2016-12-09T07:22:00.000Z</pubTime>
+        
+        <tag>视频</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/10/zwh7/</loc>
+    <lastmod>2016-12-10T04:09:10.477Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript全栈之道</title>
         <pubTime>2016-12-10T02:33:00.000Z</pubTime>
         
         <tag>web前端</tag>
@@ -38,23 +72,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/09/zwh5/</loc>
-    <lastmod>2016-12-09T07:23:02.946Z</lastmod>
-    <data>
-        <display>
-        <title>全明星搞笑阵容</title>
-        <pubTime>2016-12-09T07:22:00.000Z</pubTime>
-        
-        <tag>视频</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/12/07/zwh3/</loc>
     <lastmod>2016-12-09T07:22:33.557Z</lastmod>
     <data>
@@ -63,23 +80,6 @@
         <pubTime>2016-12-07T10:36:00.000Z</pubTime>
         
         <tag>日志</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/12/09/zwh4/</loc>
-    <lastmod>2016-12-09T07:20:27.357Z</lastmod>
-    <data>
-        <display>
-        <title>向天再笑500年</title>
-        <pubTime>2016-12-09T02:36:00.000Z</pubTime>
-        
-        <tag>视频</tag>
          
          
            
