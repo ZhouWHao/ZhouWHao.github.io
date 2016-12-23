@@ -246,14 +246,14 @@ tpwidget("show");</script>
 <h2 id="二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？"><a href="#二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？" class="headerlink" title="二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？"></a>二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？</h2><p><strong>①模块化</strong>：指的就是遵守commonjs规范，解决不同js模块之间相互调用问题</p>
 <p><strong>②CommonJS</strong>：</p>
 <p>1. A.js文件中调用另一个B.js文件，一定要在A.js中引入B.js</p>
-<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">"B.js"</span>);</div></pre></td></tr></table></figure><br><br></div>
+<div class="highlight"><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(<span class="string">"B.js"</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
 
 <p>2. 另一个被调用的js，也就是B.js一定要对外提供接口。</p>
 <div class="highlight"><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span>=B;</div></pre></td></tr></table></figure><br><br></div>
 
 <p>过程如下：</p>
 <p>B.js</p>
-<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line"><span class="keyword">var</span> b = <span class="string">"Hello,I'm module B."</span>;</div><div class="line"><span class="built_in">module</span>.exports = b;<span class="comment">//暴露一个接口，与b对接。这个接口既可以是函数，也可以是对象，甚至是数组。</span></div></pre></td></tr></table></figure><br><br></div>
+<div class="highlight"><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line">var b = <span class="string">"Hello,I'm module B."</span>;</div><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = b;<span class="comment">//暴露一个接口，与b对接。这个接口既可以是函数，也可以是对象，甚至是数组。</span></div></pre></td></tr></table></figure><br><br></div>
 
 <p>A.js</p>
 <div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line"><span class="keyword">var</span> _b = <span class="built_in">require</span>(<span class="string">"./B.js"</span>);<span class="comment">//实际过程中应当是B.js相对于A.js的路径，这比使用绝对路径去获取要规范得多</span></div><div class="line"><span class="comment">//此时_b获得了B.js的接口，这个接口指向B.js中的变量b</span></div><div class="line"><span class="built_in">console</span>.log( _b );<span class="comment">//"Hello,I'm module B.";</span></div></pre></td></tr></table></figure><br><br></div>
@@ -300,13 +300,13 @@ tpwidget("show");</script>
 <li><p>匿名函数参数：为依赖模块在这个模块中的接口，它们是一一对应的，因此即便不需要某个模块的接口，但若是需要它后面模块的接口，那也必须给它增加一个用于占位的参数。</p>
 </li>
 </ul>
-<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define( <span class="string">'id'</span>, [ <span class="string">'module1'</span>, <span class="string">'module2'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> m1, m2 </span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">arg1</span>: m1,</div><div class="line">    <span class="attr">arg2</span>: m2</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//返回值即是module3的接口</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure><br><br></div>
+<div class="highlight"><br><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define( <span class="string">'id'</span>, [ <span class="string">'module1'</span>, <span class="string">'module2'</span> ], <span class="function"><span class="keyword">function</span><span class="params">( m1, m2 )</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    arg1: m1,</div><div class="line">    arg2: m2</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//返回值即是module3的接口</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure><br><br></div>
 
 <ul>
 <li>使用步骤</li>
 </ul>
 <p>1. 下载requireJS</p>
-<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install requirejs<span class="comment">//根据个人习惯选择下载方式，只要保证后续引入的路径正确</span></div></pre></td></tr></table></figure><br><br></div>
+<div class="highlight"><br><br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install requirejs<span class="comment">//根据个人习惯选择下载方式，只要保证后续引入的路径正确</span></div></pre></td></tr></table></figure><br><br></div>
 
 <p>2. 配置config文件和main.js</p>
 <p>config.js</p>
@@ -332,7 +332,7 @@ tpwidget("show");</script>
 <li>使用步骤</li>
 </ul>
 <p>1. 下载seajs</p>
-<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install seajs<span class="comment">//这里根据个人习惯下载seajs的包，只要引入时路径正确就行</span></div></pre></td></tr></table></figure><br><br></div>
+<div class="highlight"><br><br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install seajs<span class="comment">//这里根据个人习惯下载seajs的包，只要引入时路径正确就行</span></div></pre></td></tr></table></figure><br><br></div>
 
 <p>2. 配置seajs.config</p>
 <div class="highlight"><br><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">seajs</span><span class="selector-class">.config</span>(&#123;</div><div class="line">  <span class="attribute">base</span>: <span class="string">'./'</span>, <span class="comment">//模块起始路径</span></div><div class="line">&#125;)</div><div class="line"><span class="selector-tag">seajs</span><span class="selector-class">.use</span>(<span class="string">'./main'</span>);<span class="comment">//使用主逻辑入口文件，相当于requirejs中的data-main文件</span></div></pre></td></tr></table></figure><br><br></div>
@@ -456,18 +456,18 @@ tpwidget("show");</script>
   
 <nav id="article-nav">
   
-    <a href="/2016/12/10/zwh7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/23/zwh10/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javascript全栈之道
+          你觉得和珅是好官还是贪官？
         
       </div>
     </a>
   
   
-    <a href="/2016/12/09/zwh6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">游戏纯属爱好</div>
+    <a href="/2016/12/10/zwh7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript全栈之道</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -572,15 +572,15 @@ tpwidget("show");</script>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">日志</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)">电视剧</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)">目标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">日志</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +592,7 @@ tpwidget("show");</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">英语</a>
+                <a href="javascript:void(0)">前端模块化管理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,7 +600,7 @@ tpwidget("show");</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">前端模块化管理</a>
+                <a href="javascript:void(0)">英语</a>
               </li>
             
             <div class="clearfix"></div>
