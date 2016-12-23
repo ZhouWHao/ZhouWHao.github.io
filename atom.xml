@@ -17,8 +17,8 @@
   
   <entry>
     <title>你觉得和珅是好官还是贪官？</title>
-    <link href="http://yoursite.com/2016/12/23/zwh11/"/>
-    <id>http://yoursite.com/2016/12/23/zwh11/</id>
+    <link href="http://yoursite.com/2016/12/23/zwh10/"/>
+    <id>http://yoursite.com/2016/12/23/zwh10/</id>
     <published>2016-12-23T03:00:00.000Z</published>
     <updated>2016-12-23T03:00:28.557Z</updated>
     
@@ -37,30 +37,9 @@
   </entry>
   
   <entry>
-    <title>前端模块化这几年太先进，先进得我都不认识它了</title>
-    <link href="http://yoursite.com/2016/12/10/zwh9/"/>
-    <id>http://yoursite.com/2016/12/10/zwh9/</id>
-    <published>2016-12-10T02:33:00.000Z</published>
-    <updated>2016-12-15T08:30:06.837Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/assets/blogImg/English.png" alt=""><br>&emsp;&emsp;整个过程就是试错，得到反馈，迅速纠正，练习，继续循环，最终学会。<br><a id="more"></a></p>
-<embed height="700" width="850" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=5994366&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/English.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;emsp;&amp;emsp;整个过程就是试错，得到反馈，迅速纠正，练习，继续循环，最终学会。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="前端模块化管理" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>如何在6个月内学会英语</title>
-    <link href="http://yoursite.com/2016/12/10/zwh10/"/>
-    <id>http://yoursite.com/2016/12/10/zwh10/</id>
+    <link href="http://yoursite.com/2016/12/10/zwh8/"/>
+    <id>http://yoursite.com/2016/12/10/zwh8/</id>
     <published>2016-12-10T02:33:00.000Z</published>
     <updated>2016-12-13T06:38:44.650Z</updated>
     
@@ -75,6 +54,166 @@
     
     
       <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端模块化这几年太先进，先进得我都不认识它了</title>
+    <link href="http://yoursite.com/2016/12/10/zwh9/"/>
+    <id>http://yoursite.com/2016/12/10/zwh9/</id>
+    <published>2016-12-10T02:33:00.000Z</published>
+    <updated>2016-12-23T04:10:11.835Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/assets/blogImg/module.png" alt=""><br>&emsp;&emsp;<br><a id="more"></a></p>
+<h2 id="一、什么是模块？"><a href="#一、什么是模块？" class="headerlink" title="一、什么是模块？"></a>一、什么是模块？</h2><p><strong>定义</strong>：具有相同属性和行为的事物的集合</p>
+<p><strong>在前端中</strong>：将一些属性比较类似和行为比较类似的内容放在同一个js文件里面，把这个js文件称为模块</p>
+<p><strong>目的</strong>：为了每个js文件只关注与自身有关的事情，让每个js文件各行其职</p>
+<h2 id="二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？"><a href="#二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？" class="headerlink" title="二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？"></a>二、什么是模块化？CommonJS是什么？AMD和CMD又是什么？</h2><p><strong>①模块化</strong>：指的就是遵守commonjs规范，解决不同js模块之间相互调用问题</p>
+<p><strong>②CommonJS</strong>：</p>
+<p>1. A.js文件中调用另一个B.js文件，一定要在A.js中引入B.js</p>
+<div class="highlight"><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(<span class="string">"B.js"</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>2. 另一个被调用的js，也就是B.js一定要对外提供接口。</p>
+<div class="highlight"><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span>=B;</div></pre></td></tr></table></figure><br><br></div>
+
+<p>过程如下：</p>
+<p>B.js</p>
+<div class="highlight"><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line">var b = <span class="string">"Hello,I'm module B."</span>;</div><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = b;<span class="comment">//暴露一个接口，与b对接。这个接口既可以是函数，也可以是对象，甚至是数组。</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>A.js</p>
+<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">javascript</div><div class="line"><span class="keyword">var</span> _b = <span class="built_in">require</span>(<span class="string">"./B.js"</span>);<span class="comment">//实际过程中应当是B.js相对于A.js的路径，这比使用绝对路径去获取要规范得多</span></div><div class="line"><span class="comment">//此时_b获得了B.js的接口，这个接口指向B.js中的变量b</span></div><div class="line"><span class="built_in">console</span>.log( _b );<span class="comment">//"Hello,I'm module B.";</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>这就实现了一个简单的模块化工作方式，即：</p>
+<p><strong>模块间相互调用，协同工作，实现某特定功能。</strong></p>
+<p><strong>④AMD规范</strong>：Async Module Define 异步模块声明</p>
+<p><strong>⑤CMD规范</strong>：Common Module Define 公共模块声明</p>
+<p><strong>⑥模块化的核心价值</strong>：模块化最核心的价值在于解决不同文件之间的分工和调用问题，即依赖关系。</p>
+<h2 id="三、模块化的一些工具"><a href="#三、模块化的一些工具" class="headerlink" title="三、模块化的一些工具"></a>三、模块化的一些工具</h2><ul>
+<li><p>gulp + browerify</p>
+</li>
+<li><p>构建步骤：</p>
+</li>
+</ul>
+<p>1. 安装gulp</p>
+<div class="highlight"><br><br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp --<span class="built_in">save</span>-<span class="built_in">dev</span> <span class="comment">//要安装全局还是本地依赖根据实际情况来</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>2. 安装browserify –save–dev</p>
+<div class="highlight"><br><br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">npm</span> <span class="comment">install</span> <span class="comment">browserify</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span><span class="literal">-</span><span class="literal">-</span><span class="comment">dev</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>3. 安装文件输出流工具</p>
+<div class="highlight"><br><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> vinyl-<span class="keyword">source</span>-stream <span class="comment">--save-dev</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>4. 在gulpfile里编写任务实现模块化</p>
+<p>gulpfile.js</p>
+<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//基本模块引入</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> brow = <span class="built_in">require</span>(<span class="string">'browerify'</span>);</div><div class="line"><span class="keyword">var</span> source = <span class="built_in">require</span>(<span class="string">'vinyl-source-stream'</span>);</div><div class="line"><span class="comment">//任务编写</span></div><div class="line">gulp.task(<span class="string">'bundle'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="comment">//将任务交付给browserify</span></div><div class="line"><span class="comment">//brow读取入口文件后，能自动查找相互之间有依赖的关系的模块</span></div><div class="line">  <span class="keyword">return</span> brow(<span class="string">'./entry.js'</span>)</div><div class="line">  .bundle()<span class="comment">//输出一个文件流变量（gulp的工作机制）</span></div><div class="line">  .pipe(source(<span class="string">'bundle.js'</span>))<span class="comment">//将文件流变量输出为文件</span></div><div class="line">  .pipe(gulp.dest(<span class="string">'js'</span>));<span class="comment">//将文件最终输出</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
+
+<ul>
+<li>webpack</li>
+</ul>
+<p>参考[webpack的配置及使用][1]</p>
+<ul>
+<li><p>requireJS</p>
+</li>
+<li><p>模块声明规范：AMD</p>
+</li>
+<li><p>声明模块</p>
+</li>
+<li><p>参数1：id 是这个模块的名称，它是一个可选参数，默认为require加载此模块时指定的名称，若定义这个参数，那么这个模块名应当为“顶级”的，不允许相对名称。</p>
+</li>
+<li><p>参数2：数组，为这个模块所依赖的其他模块</p>
+</li>
+<li><p>匿名函数参数：为依赖模块在这个模块中的接口，它们是一一对应的，因此即便不需要某个模块的接口，但若是需要它后面模块的接口，那也必须给它增加一个用于占位的参数。</p>
+</li>
+</ul>
+<div class="highlight"><br><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define( <span class="string">'id'</span>, [ <span class="string">'module1'</span>, <span class="string">'module2'</span> ], <span class="function"><span class="keyword">function</span><span class="params">( m1, m2 )</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    arg1: m1,</div><div class="line">    arg2: m2</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//返回值即是module3的接口</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure><br><br></div>
+
+<ul>
+<li>使用步骤</li>
+</ul>
+<p>1. 下载requireJS</p>
+<div class="highlight"><br><br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install requirejs<span class="comment">//根据个人习惯选择下载方式，只要保证后续引入的路径正确</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>2. 配置config文件和main.js</p>
+<p>config.js</p>
+<div class="highlight"><br><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">require</span><span class="selector-class">.config</span>( &#123;</div><div class="line">  <span class="attribute">base</span>: <span class="string">''</span>,<span class="comment">//引入模块的起始路径</span></div><div class="line">  <span class="comment">//paths对象为要引入的模块的名称及路径，且不需.js后缀，require默认会为文件添加.js后缀</span></div><div class="line">  <span class="attribute">paths</span>: &#123;</div><div class="line">    <span class="string">'jquery'</span>: <span class="string">'./jquery-1.11.0'</span><span class="comment">//这就引入了juery作为一个模块。 PS：jquery自己已经实现了AMD，并且'jquery'是一个顶级模块名。</span></div><div class="line">  &#125;</div><div class="line">&#125; );</div></pre></td></tr></table></figure><br><br></div>
+
+<p>main.js</p>
+<div class="highlight"><br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</div><div class="line">  $(<span class="built_in">document</span>).css(<span class="string">"background"</span>, <span class="string">"#000"</span>);<span class="comment">//这就实现了引入使用jquery模块，并用它进行dom操作</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure><br><br></div>
+
+<p>3. 在页面中引入</p>
+<div class="highlight"><br><br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script data-main=<span class="string">"./main.js"</span> src=<span class="string">"./bower-components/requirejs/dist/require.js&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">//main即是主逻辑入口文件</span></div></pre></td></tr></table></figure><br><br></div>
+
+<ul>
+<li><p>SeaJS</p>
+</li>
+<li><p>模块声明规范：CMD</p>
+</li>
+<li><p>声明模块</p>
+</li>
+</ul>
+<div class="highlight"><br><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"> <span class="built_in">require</span>, exports, <span class="built_in">module</span> </span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> c = <span class="built_in">require</span>(<span class="string">'./Controller.js'</span>);</div><div class="line">  c();</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br><br></div>
+
+<ul>
+<li>使用步骤</li>
+</ul>
+<p>1. 下载seajs</p>
+<div class="highlight"><br><br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install seajs<span class="comment">//这里根据个人习惯下载seajs的包，只要引入时路径正确就行</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>2. 配置seajs.config</p>
+<div class="highlight"><br><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">seajs</span><span class="selector-class">.config</span>(&#123;</div><div class="line">  <span class="attribute">base</span>: <span class="string">'./'</span>, <span class="comment">//模块起始路径</span></div><div class="line">&#125;)</div><div class="line"><span class="selector-tag">seajs</span><span class="selector-class">.use</span>(<span class="string">'./main'</span>);<span class="comment">//使用主逻辑入口文件，相当于requirejs中的data-main文件</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p><strong>requireJS和SeaJS都是在前端实现模块化，相当于一个前端的js模块化加载器，和webpack不一样，webpack是通过nodejs将文件打包的。</strong></p>
+<h2 id="四、模块化案例"><a href="#四、模块化案例" class="headerlink" title="四、模块化案例"></a>四、模块化案例</h2><p><strong>前端mvc架构</strong></p>
+<ul>
+<li><p><strong>Vue</strong> 组件化&amp;模块化</p>
+</li>
+<li><p><strong>React</strong> 组件化&amp;模块化</p>
+</li>
+<li><p><strong>node.js</strong> 每个文件都是模块</p>
+</li>
+</ul>
+<p><strong>什么是MVC</strong></p>
+<ul>
+<li>后端开发的一种概念</li>
+</ul>
+<p><em>即view( html + js + css + img ) + controller( 控制层 ) + model( 数据模型 )</em></p>
+<ul>
+<li><p>前端演变了一套MVC体系：</p>
+</li>
+<li><p><strong>veiw</strong>( html + css + js )</p>
+</li>
+</ul>
+<p><em>写静态页面 css、js、img及效果</em></p>
+<ul>
+<li><strong>controller</strong>( 专注于实现服务和逻辑控制的层面叫做控制器 )</li>
+</ul>
+<p><em>监听页面中请求和事件，处理请求和事件；向model请求数据，得到数据后绑定到页面</em></p>
+<ul>
+<li><strong>model</strong> ( 数据变量 || ajax从服务端取回的数据 )</li>
+</ul>
+<p><strong>对外提供一些数据</strong></p>
+<p><u>体现了一种分层的概念，让每个层面只做自己该做的行为，减少代码耦合和冗余</u></p>
+<p><strong>为什么使用MVC？</strong></p>
+<p><strong>低耦合：</strong></p>
+<p>MVC将业务分为三层，减少了数据与业务的耦合性，增强了各层次功能的独立性，使得在需求改变时可能只需要改变其中一层就能完成服务；</p>
+<p><strong>复用性高：</strong></p>
+<p>三层业务功能分明，耦合度低，使各模块可以独立完成自身功能，降低了依赖性，具有很高的复用性。</p>
+<p><strong>利于批量生产和扩展：</strong></p>
+<p>复用性高使得在批量生产的时候可以根据需求进行模块的重用，加快了生产效率。并且模块化使得扩展也非常方便，模块只需根据规范进行编写，经审核后引入便可以实现扩展。</p>
+<p><strong>利于协作开发：</strong></p>
+<p>扩展性强使协作开发也变得非常方便，每个人根据自己的分工设计自己的模块，不与他人冲突，引入时也各行其职。</p>
+<p><strong>推广普及度高：</strong></p>
+<p>由于对协作开发的友好，使得MVC模式大受开发者的欢迎，使用这个模式的产品的推广和普及变得容易得多。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/module.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;emsp;&amp;emsp;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端模块化管理" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -323,7 +462,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myTitle = <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;'Hello ' + 'World'&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <hr>
 <h2 id="Babel-转码器"><a href="#Babel-转码器" class="headerlink" title="Babel 转码器"></a>Babel 转码器</h2><p>JavaScript 引擎（包括浏览器和 Node）都不认识 JSX，需要首先使用 Babel 转码，然后才能运行。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"babel.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="comment">// ** Our code goes here! **</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"babel.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="actionscript"></span></div><div class="line">  <span class="comment">// ** Our code goes here! **</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>React 需要加载两个库：React 和 React-DOM，前者是 React 的核心库，后者是 React 的 DOM 适配库。</p>
 <p>Babel 用来在浏览器转换 JSX 语法，如果服务器已经转好了，浏览器就不需要加载这个库。</p>
 <hr>
@@ -655,27 +794,6 @@
     
     
       <category term="web前端" scheme="http://yoursite.com/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何在6个月内学会英语</title>
-    <link href="http://yoursite.com/2016/12/10/zwh8/"/>
-    <id>http://yoursite.com/2016/12/10/zwh8/</id>
-    <published>2016-12-10T02:33:00.000Z</published>
-    <updated>2016-12-13T06:38:44.650Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/assets/blogImg/English.png" alt=""><br>&emsp;&emsp;整个过程就是试错，得到反馈，迅速纠正，练习，继续循环，最终学会。<br><a id="more"></a></p>
-<embed height="700" width="850" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://static.hdslb.com/miniloader.swf" flashvars="aid=5994366&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/assets/blogImg/English.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&amp;emsp;&amp;emsp;整个过程就是试错，得到反馈，迅速纠正，练习，继续循环，最终学会。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
     
   </entry>
   
