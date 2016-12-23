@@ -86,84 +86,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/jiugongge_demo2.html</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/jiugongge_demo.html</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/js/index.main.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/photos/lazyload.min.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/jquery.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/my_news_reader/js/main.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/js/zepto.min.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/my_news_reader/js/tagConfig.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/css/index.css</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/css/reset.css</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/assets/demo/hack_demo.html</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/photos/ins.css</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -177,7 +100,77 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/coffee_pc_demo/pro-con.html</loc>
+    <loc>http://yoursite.com/assets/demo/jiugongge_demo2.html</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/gift/js/index.main.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/jquery.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/gift/css/reset.css</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/gift/js/zepto.min.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/gift/js/shake.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/my_news_reader/js/main.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/my_news_reader/js/tagConfig.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/photos/lazyload.min.js</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/photos/ins.css</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/jiugongge_demo.html</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -191,7 +184,28 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/assets/demo/gift/index.html</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/assets/demo/my_news_reader/index.html</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/coffee_pc_demo/pro-con.html</loc>
+    
+    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/assets/demo/mediator/mediator.js</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
@@ -212,21 +226,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/assets/demo/mediator/mediator.js</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/index.html</loc>
-    
-    <lastmod>2016-12-04T16:51:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/assets/demo/gift/js/shake.js</loc>
+    <loc>http://yoursite.com/assets/demo/gift/css/index.css</loc>
     
     <lastmod>2016-12-04T16:51:20.000Z</lastmod>
     
