@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="zwh | Blog">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;本教程将教您怎样通过 Chrome Workspace 调试本地项目来快速编辑您的代码">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/135.jpg">
-<meta property="og:image" content="http://yoursite.com/../assets/blogImg/chrome_devtools_workspace_banner_zpscp9igsn7.png">
-<meta property="og:image" content="http://yoursite.com/../assets/blogImg/chrome_devtools_workspace_addfolder_zpsuxavvyuf.png">
-<meta property="og:image" content="http://yoursite.com/../assets/blogImg/chrome_devtools_workspace_maptoresource_zpsmbford8z.png">
-<meta property="og:image" content="http://yoursite.com/../assets/blogImg/chrome_devtools_workspace_maptoresourcechoose_zpsyupcc64v.png">
-<meta property="og:image" content="http://yoursite.com/../assets/blogImg/chrome_devtools_workspace_editfilesystem_zpsydr5cj62.png">
-<meta property="og:updated_time" content="2017-03-23T06:51:53.831Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chrome_devtools_workspace_banner_zpscp9igsn7.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chrome_devtools_workspace_addfolder_zpsuxavvyuf.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chrome_devtools_workspace_maptoresource_zpsmbford8z.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chrome_devtools_workspace_maptoresourcechoose_zpsyupcc64v.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/chrome_devtools_workspace_editfilesystem_zpsydr5cj62.png">
+<meta property="og:updated_time" content="2017-03-23T09:00:07.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过 Chrome Workspace 调试你的本地项目">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;本教程将教您怎样通过 Chrome Workspace 调试本地项目来快速编辑您的代码">
@@ -257,7 +257,7 @@ tpwidget("show");</script>
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/assets/blogImg/135.jpg" alt=""><br>&emsp;&emsp;本教程将教您怎样通过 Chrome Workspace 调试本地项目来快速编辑您的代码<br><a id="more"></a></p>
-<div class="entry-content wp" itemprop="articleBody"><br><div class="post-cover"><br><img src="../assets/blogImg/chrome_devtools_workspace_banner_zpscp9igsn7.png" itemprop="image" width="700" lazyload=""><br></div><br><p>通过 Workspace，你可以把本地服务器的资源映射为硬盘上的文件，实现调试 JS 和 CSS 的同时自动保存文件，比如 Elements 面板中的样式变更会自动保存到文件中。<br><br><span id="more-883"></span><br><br>以调试本地服务器上的 <a href="http://c7sky.com/wordpress-theme-minty.html" target="_blank">Minty 主题</a>为例：</p><br><p>打开 DevTools 开发者工具中的 Sources 面板，在面板左侧右键选择「Add folder to workspace」，选择添加的文件夹：</p><br><figure style="width: 660px" class="wp-caption alignnone"><img src="../assets/blogImg/chrome_devtools_workspace_addfolder_zpsuxavvyuf.png" width="660" height="300" class=""><figcaption class="wp-caption-text">添加文件夹到 workspace</figcaption></figure><br><p>添加好后，右键一个文件，选择「Map to file system resource…」，在弹出的文本框中选择在 Workspace 中对应的文件：</p><br><figure style="width: 660px" class="wp-caption alignnone"><img src="../assets/blogImg/chrome_devtools_workspace_maptoresource_zpsmbford8z.png" width="660" height="300" class=""><figcaption class="wp-caption-text">添加映射文件</figcaption></figure><br><figure style="width: 660px" class="wp-caption alignnone"><img src="../assets/blogImg/chrome_devtools_workspace_maptoresourcechoose_zpsyupcc64v.png" width="660" height="300" class=""><figcaption class="wp-caption-text">选择对应的本地文件</figcaption></figure><br><p>比如我映射了 <code>style.min.css</code> 文件，那么现在你编辑元素面板中的样式，Chrome 就会实时保存本地的文件变更。</p><br><p>具体的文件映射规则可以到 Devtools &gt; Settings &gt; Workspace 中设置：<br><br></p><figure style="width: 660px" class="wp-caption alignnone"><img src="../assets/blogImg/chrome_devtools_workspace_editfilesystem_zpsydr5cj62.png" width="660" height="300" class=""><figcaption class="wp-caption-text">设置 Workspace</figcaption></figure><p></p><br><p>PS: 如果你映射的是文件夹，像 all.js?v=4.1 之类带参数的请求是无法映射的。(<a href="https://code.google.com/p/chromium/issues/detail?id=277885" target="_blank">Issue 277885</a>)</p><br><p>参考资料：<br><br><a href="https://developer.chrome.com/devtools/docs/workspaces" target="_blank">Workspaces - Persistent authoring in the DevTools</a></p><br></div>
+<div class="entry-content wp" itemprop="articleBody"><br><div class="post-cover"><br><img src="/assets/blogImg/chrome_devtools_workspace_banner_zpscp9igsn7.png" itemprop="image" width="700" lazyload=""><br></div><br><p>通过 Workspace，你可以把本地服务器的资源映射为硬盘上的文件，实现调试 JS 和 CSS 的同时自动保存文件，比如 Elements 面板中的样式变更会自动保存到文件中。<br><br><span id="more-883"></span><br><br>以调试本地服务器上的 <a href="http://c7sky.com/wordpress-theme-minty.html" target="_blank">Minty 主题</a>为例：</p><br><p>打开 DevTools 开发者工具中的 Sources 面板，在面板左侧右键选择「Add folder to workspace」，选择添加的文件夹：</p><br><figure style="width: 660px" class="wp-caption alignnone"><img src="/assets/blogImg/chrome_devtools_workspace_addfolder_zpsuxavvyuf.png" width="660" height="300" class=""><figcaption class="wp-caption-text">添加文件夹到 workspace</figcaption></figure><br><p>添加好后，右键一个文件，选择「Map to file system resource…」，在弹出的文本框中选择在 Workspace 中对应的文件：</p><br><figure style="width: 660px" class="wp-caption alignnone"><img src="/assets/blogImg/chrome_devtools_workspace_maptoresource_zpsmbford8z.png" width="660" height="300" class=""><figcaption class="wp-caption-text">添加映射文件</figcaption></figure><br><figure style="width: 660px" class="wp-caption alignnone"><img src="/assets/blogImg/chrome_devtools_workspace_maptoresourcechoose_zpsyupcc64v.png" width="660" height="300" class=""><figcaption class="wp-caption-text">选择对应的本地文件</figcaption></figure><br><p>比如我映射了 <code>style.min.css</code> 文件，那么现在你编辑元素面板中的样式，Chrome 就会实时保存本地的文件变更。</p><br><p>具体的文件映射规则可以到 Devtools &gt; Settings &gt; Workspace 中设置：<br><br></p><figure style="width: 660px" class="wp-caption alignnone"><img src="/assets/blogImg/chrome_devtools_workspace_editfilesystem_zpsydr5cj62.png" width="660" height="300" class=""><figcaption class="wp-caption-text">设置 Workspace</figcaption></figure><p></p><br><p>PS: 如果你映射的是文件夹，像 all.js?v=4.1 之类带参数的请求是无法映射的。(<a href="https://code.google.com/p/chromium/issues/detail?id=277885" target="_blank">Issue 277885</a>)</p><br><p>参考资料：<br><br><a href="https://developer.chrome.com/devtools/docs/workspaces" target="_blank">Workspaces - Persistent authoring in the DevTools</a></p><br></div>
       
 
       
@@ -334,9 +334,18 @@ tpwidget("show");</script>
   
 <nav id="article-nav">
   
+    <a href="/2016/12/23/zwh10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          你觉得和珅是好官还是贪官？
+        
+      </div>
+    </a>
   
-    <a href="/2016/12/23/zwh10/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">你觉得和珅是好官还是贪官？</div>
+  
+    <a href="/2016/12/10/zwh7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript全栈之道</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -441,7 +450,11 @@ tpwidget("show");</script>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">目标</a>
+                <a href="javascript:void(0)">web前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,6 +470,10 @@ tpwidget("show");</script>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)">英语</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)">前端模块化管理</a>
               </li>
              
@@ -465,15 +482,7 @@ tpwidget("show");</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">英语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">web前端</a>
+                <a href="javascript:void(0)">目标</a>
               </li>
             
             <div class="clearfix"></div>
